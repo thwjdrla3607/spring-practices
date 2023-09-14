@@ -1,5 +1,11 @@
 package com.poscodx.hellospring.controller;
 
+import java.io.IOException;
+import java.io.Writer;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +49,13 @@ public class HelloController {
 	
 	@RequestMapping("/hello6")
 	public String hello6() {
+		return "redirect:/hello";
+	}
+	
+	@RequestMapping("/hello7") // spring에선 이렇게 짜지 마
+	public String hello7(HttpServletRequest request, HttpServletResponse response, Writer out) throws IOException {
+		String name = request.getParameter("n");
+		out.write("hello " + name);
 		return "redirect:/hello";
 	}
 	
