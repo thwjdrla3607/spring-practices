@@ -18,5 +18,4 @@ public class MainApp {
       
       ((AbstractApplicationContext)ac).close();
    }
-
 }

@@ -23,12 +23,12 @@ public class MyAspect {
 	}
 	
 	@AfterReturning("execution(* com.poscodx.aoptest.service.ProductService.find(String))")
-	public void adviceAfterReturning() {
+	public void adviceAfterReturning() { //Pointcut에서 메서드가 예외 없이 정상적으로 반환된 경우 실행
 		System.out.println("---- AfterReturning Advice ----");
 	}
 	
 	@AfterThrowing(value="execution(* *..*.ProductService.find(..))", throwing="ex")
-	public void adviceAfterThrowing(Throwable ex) {
+	public void adviceAfterThrowing(Throwable ex) { //Pointcut에서 메서드가 예외를 던진 경우 실행
 		System.out.println("---- AfterThrowing Advice:" + ex + " ----");
 	}
 	
@@ -38,8 +38,8 @@ public class MyAspect {
 		System.out.println("---- Around(before) Advice ----");
 		
 		/* Point Cut Method 실행 */
-//		Object[] params = {"Camera"};
-//		Object result = pjp.proceed(params);
+		// Object[] params = {"Camera"};
+		// Object result = pjp.proceed(params);
 		
 		Object result = pjp.proceed();
 		

@@ -6,7 +6,7 @@ import com.poscodx.aoptest.vo.ProductVo;
 
 @Service
 public class ProductService {
-
+	
    public ProductVo find(String keyword) {
       ProductVo vo = new ProductVo(keyword);
 //      if( 1 - 1 == 0) {
@@ -14,5 +14,4 @@ public class ProductService {
 //      }
       return vo;
    }
-
 }
